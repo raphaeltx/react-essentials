@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-essentials
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: react-essentials
+  template:
+    metadata:
+      labels:
+        app: react-essentials
+    spec:
+      containers:
+      - name: react-essentials
+        image: react-essentials:latest
+        # imagePullPolicy: IfNotPresent
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
